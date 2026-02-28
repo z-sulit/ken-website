@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gundam Base | System Boot</title>
+    <link rel="stylesheet" href="login-style.css">
+</head>
+
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="Music/RX-0.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- SCREEN 0: Click to Start -->
+    <div id="screen-start" class="screen active">
+        <div class="start-prompt">CLICK TO BOOT SYSTEM</div>
+    </div>
+
+    <!-- SCREEN 1: Initial Loading (10 seconds) -->
+    <div id="screen-loading" class="screen">
+        <div class="cog-container">
+            <svg class="cog cog-1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M43 5 L57 5 L59 15 C62 16 65 18 68 20 L77 14 L87 24 L81 33 C83 36 84 39 85 43 L95 45 L95 55 L85 57 C84 61 83 64 81 67 L87 76 L77 86 L68 80 C65 82 62 84 59 85 L57 95 L43 95 L41 85 C38 84 35 82 32 80 L23 86 L13 76 L19 67 C17 64 16 61 15 57 L5 55 L5 45 L15 43 C16 39 17 36 19 33 L13 24 L23 14 L32 20 C35 18 38 16 41 15 Z"
+                    fill="none" stroke="currentColor" stroke-width="2" />
+                <circle cx="50" cy="50" r="18" fill="none" stroke="currentColor" stroke-width="2" />
+            </svg>
+            <svg class="cog cog-2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M43 5 L57 5 L59 15 C62 16 65 18 68 20 L77 14 L87 24 L81 33 C83 36 84 39 85 43 L95 45 L95 55 L85 57 C84 61 83 64 81 67 L87 76 L77 86 L68 80 C65 82 62 84 59 85 L57 95 L43 95 L41 85 C38 84 35 82 32 80 L23 86 L13 76 L19 67 C17 64 16 61 15 57 L5 55 L5 45 L15 43 C16 39 17 36 19 33 L13 24 L23 14 L32 20 C35 18 38 16 41 15 Z"
+                    fill="none" stroke="currentColor" stroke-width="2" />
+                <circle cx="50" cy="50" r="18" fill="none" stroke="currentColor" stroke-width="2" />
+            </svg>
+            <svg class="cog cog-3" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M43 5 L57 5 L59 15 C62 16 65 18 68 20 L77 14 L87 24 L81 33 C83 36 84 39 85 43 L95 45 L95 55 L85 57 C84 61 83 64 81 67 L87 76 L77 86 L68 80 C65 82 62 84 59 85 L57 95 L43 95 L41 85 C38 84 35 82 32 80 L23 86 L13 76 L19 67 C17 64 16 61 15 57 L5 55 L5 45 L15 43 C16 39 17 36 19 33 L13 24 L23 14 L32 20 C35 18 38 16 41 15 Z"
+                    fill="none" stroke="currentColor" stroke-width="2" />
+                <circle cx="50" cy="50" r="18" fill="none" stroke="currentColor" stroke-width="2" />
+            </svg>
+            <svg class="cog cog-4" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M43 5 L57 5 L59 15 C62 16 65 18 68 20 L77 14 L87 24 L81 33 C83 36 84 39 85 43 L95 45 L95 55 L85 57 C84 61 83 64 81 67 L87 76 L77 86 L68 80 C65 82 62 84 59 85 L57 95 L43 95 L41 85 C38 84 35 82 32 80 L23 86 L13 76 L19 67 C17 64 16 61 15 57 L5 55 L5 45 L15 43 C16 39 17 36 19 33 L13 24 L23 14 L32 20 C35 18 38 16 41 15 Z"
+                    fill="none" stroke="currentColor" stroke-width="2" />
+                <circle cx="50" cy="50" r="18" fill="none" stroke="currentColor" stroke-width="2" />
+            </svg>
+        </div>
+        <div class="loading-indicator">
+            <div class="square"></div>
+            <span class="loading-text">Loading.....</span>
+        </div>
+    </div>
+
+    <!-- SCREEN 2: Status Messages (10 seconds) -->
+    <div id="screen-status" class="screen">
+        <div class="shapes-container" id="shapesContainer"></div>
+        <div class="status-message" id="statusText"></div>
+        <div class="status-progress">
+            <div class="status-progress-bar" id="progressBar"></div>
+        </div>
+    </div>
+
+    <!-- SCREEN 3: Login Form -->
+    <div id="screen-login" class="screen">
+        <div class="login-wrapper">
+            <h2>IDENTIFY</h2>
+            <p class="login-subtitle">Pilot Verification Required</p>
+            <form id="loginForm" autocomplete="off">
+                <div class="form-group">
+                    <label for="username">Callsign</label>
+                    <input type="text" id="username" name="username" required placeholder="Enter callsign">
+                </div>
+                <div class="form-group">
+                    <label for="password">Access Code</label>
+                    <input type="password" id="password" name="password" required placeholder="Enter access code">
+                </div>
+                <button type="submit" class="login-btn">Launch</button>
+                <div class="login-error" id="loginError"></div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="iris-overlay" id="irisOverlay"></div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/animejs@4.0.2/lib/anime.iife.min.js"></script>
+    <script src="login-animations.js"></script>
+
+</body>
+
+</html>
