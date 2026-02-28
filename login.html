@@ -6,9 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gundam Base | System Boot</title>
     <link rel="stylesheet" href="login-style.css">
+    <link rel="stylesheet" href="playlist-style.css">
 </head>
 
 <body>
+
+    <video muted loop playsinline class="login-bg-video" id="loginBgVideo">
+        <source src="MP4/unicorneditforweb.mp4" type="video/mp4">
+    </video>
+    <div class="login-bg-overlay"></div>
+    <div class="login-black-mask" id="blackMask"></div>
 
     <audio id="bgMusic" loop>
         <source src="Music/RX-0.mp3" type="audio/mpeg">
@@ -88,6 +95,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/animejs@4.0.2/lib/anime.iife.min.js"></script>
     <script src="login-animations.js"></script>
+    <script src="music.js"></script>
 
 </body>
 

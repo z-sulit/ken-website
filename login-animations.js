@@ -154,6 +154,12 @@ function startPhase2() {
     // After 10 seconds  show login
     setTimeout(() => {
         switchScreen(screenStatus, screenLogin);
+        // Show playlist panel
+        const playlistPanel = document.querySelector('.playlist-panel');
+        if (playlistPanel) {
+            playlistPanel.style.display = '';
+            playlistPanel.classList.add('open');
+        }
     }, STATUS_DURATION);
 }
 
@@ -200,8 +206,19 @@ function triggerIrisClose() {
 
 
 const screenStart = document.getElementById('screen-start');
+const loginBgVideo = document.getElementById('loginBgVideo');
+const blackMask = document.getElementById('blackMask');
 
 screenStart.addEventListener('click', () => {
     switchScreen(screenStart, screenLoading);
     startPhase1();
+
+    // Fade out black mask at 17.5s, video starts at 18s
+    setTimeout(() => {
+        blackMask.classList.add('fade-out');
+    }, 17500);
+
+    setTimeout(() => {
+        loginBgVideo.play();
+    }, 18000);
 });

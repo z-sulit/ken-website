@@ -16,7 +16,37 @@ body {
     height: 100vh;
 }
 
-/* ========== SHARED SCREEN ========== */
+.login-bg-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    object-fit: cover;
+}
+
+.login-bg-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.login-black-mask {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 2;
+    transition: opacity 1s ease;
+}
+
+.login-black-mask.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
 .screen {
     position: fixed;
     top: 0;
@@ -38,9 +68,9 @@ body {
     pointer-events: all;
 }
 
-/* ========== SCREEN 1: INITIAL LOADING (7s) ========== */
+/*SCREEN 1: INITIAL LOADING (7s) */
 #screen-loading {
-    background: #050505;
+    background: transparent;
 }
 
 .loading-indicator {
@@ -148,9 +178,9 @@ body {
     }
 }
 
-/* ========== SCREEN 2: STATUS MESSAGES (10s) ========== */
+/* SCREEN 2: STATUS MESSAGES (10s) */
 #screen-status {
-    background: #050505;
+    background: transparent;
 }
 
 .shapes-container {
@@ -216,9 +246,9 @@ body {
     transition: width 0.4s ease;
 }
 
-/* ========== SCREEN 0: CLICK TO START ========== */
+/* SCREEN 0: CLICK TO START */
 #screen-start {
-    background: #050505;
+    background: transparent;
     cursor: pointer;
 }
 
@@ -245,9 +275,9 @@ body {
     }
 }
 
-/* ========== SCREEN 3: LOGIN FORM ========== */
+/* SCREEN 3: LOGIN FORM */
 #screen-login {
-    background: rgba(5, 5, 5, 0.95);
+    background: transparent;
 }
 
 .login-wrapper {
@@ -355,7 +385,7 @@ body {
     min-height: 20px;
 }
 
-/* ========== IRIS CLOSE OVERLAY ========== */
+/* IRIS CLOSE OVERLAY */
 .iris-overlay {
     position: fixed;
     top: 0;
