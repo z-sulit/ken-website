@@ -170,7 +170,7 @@ loginForm.addEventListener('submit', function (e) {
 
     const username = document.getElementById('username').value.trim();
     const password = document.getElementById('password').value.trim();
-    //PASSSS
+
     const VALID_USER = 'KennyAckerjuts';
     const VALID_PASS = 'ilovebey';
 
@@ -184,25 +184,36 @@ loginForm.addEventListener('submit', function (e) {
         return;
     }
 
-    triggerIrisClose();
+    // Slide panel away + fade to black + navigate
+    const loginWrapper = document.querySelector('.login-wrapper');
+    if (loginWrapper) {
+        loginWrapper.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+        loginWrapper.style.transform = 'translateX(-120%)';
+        loginWrapper.style.opacity = '0';
+    }
+
+    // Hide playlist panel too
+    const playlistPanel = document.querySelector('.playlist-panel');
+    if (playlistPanel) {
+        playlistPanel.style.transition = 'opacity 0.4s ease';
+        playlistPanel.style.opacity = '0';
+    }
+
+    // Fade to black after panel slides away
+    setTimeout(() => {
+        const fadeOverlay = document.createElement('div');
+        fadeOverlay.style.cssText = 'position:fixed;inset:0;background:#000;z-index:9999;opacity:0;transition:opacity 0.5s ease;';
+        document.body.appendChild(fadeOverlay);
+
+        requestAnimationFrame(() => {
+            fadeOverlay.style.opacity = '1';
+        });
+
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 500);
+    }, 400);
 });
-
-function triggerIrisClose() {
-    // Show the overlay
-    irisOverlay.classList.add('active');
-    irisOverlay.style.opacity = '1';
-    animate(irisOverlay, {
-        clipPath: ['circle(150% at 50% 50%)', 'circle(0% at 50% 50%)'],
-        duration: IRIS_DURATION,
-        ease: 'inOutQuad',
-        onComplete: () => {
-
-            setTimeout(() => {
-                window.location.href = 'index.html';
-            }, 400);
-        }
-    });
-}
 
 
 const screenStart = document.getElementById('screen-start');

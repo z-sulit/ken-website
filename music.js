@@ -106,7 +106,7 @@
         panel.className = 'playlist-panel open';
     }
     panel.innerHTML = `
-        <button class="playlist-toggle" id="playlistToggle">♫</button>
+        <button class="playlist-toggle" id="playlistToggle">»</button>
         <div class="playlist-inner">
             <div class="playlist-header">PLAYLIST</div>
             <div class="playlist-now-playing" id="nowPlaying"></div>
